@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Details</title>
+</head>
+<body>
+{% block baseblock %}
+<h1 align="center"> Course Details</h1>
+{% if stud_list %}
+<table border="2px" align="center">
+    <thead>
+
+<th> Course Name </th>
+<th> Course Duration  </th>
+<th> Course fees </th>
+<th> Course Mentor </th>
+
+
+    </thead>
+{% for student in stud_list %}
+<tr>
+    <td>{{student.cname}}</td>
+    <td>{{student.cduration}}</td>
+    <td>{{student.cfees}}</td>
+    <td>{{student.cmentor}}</td>
+
+</tr>
+{%endfor%}
+</table>
+{%else%}
+<h1> No Data found</h1>
+
+{%endif%}
+{%endblock%}
+</body>
+</html>
