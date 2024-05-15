@@ -1,0 +1,30 @@
+{% extends 'car/layouts/main.html'%}
+
+<!-- title -->
+{% block title%}
+Age Checker
+{% endblock title %}
+
+
+<!-- inside body -->
+{% block content %}
+<h1>Welcome to the Age Checker</h1>
+
+    <!-- form for checking age  -->
+    <form method="post">
+        {% csrf_token %}
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age" name="age">
+        <button type="submit">Check Age</button>
+    </form>
+
+    {% if age %}
+        <p>Your age is: {{ age }}</p>
+        {% if age >= 20 %}
+            <p>You are an adult.</p>
+        {% else %}
+            <p>You are not an adult.</p>
+        {% endif %}
+    {% endif %}
+{% endblock content %}
+
